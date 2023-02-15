@@ -1,0 +1,36 @@
+import { useEffect } from 'react';
+import { reqResApi } from '../api/reqRes';
+
+export const Usuarios = () => {
+
+    useEffect(() => {
+
+        const { data } =
+            reqResApi.get('users')
+                .then(({ data }) => {
+                    console.log("data: ", data.data)
+                })
+                .catch(console.log)
+
+    }, [])
+
+
+    return (
+        <>
+            <h3>Usuarios</h3>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Avatar</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </>
+
+    )
+}
