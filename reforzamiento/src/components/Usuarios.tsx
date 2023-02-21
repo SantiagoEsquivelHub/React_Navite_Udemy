@@ -1,33 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
-import { reqResApi } from '../api/reqRes';
-import { ReqResListado, User } from '../interfaces/reqRes';
+import { User } from '../interfaces/reqRes';
+import { useUsuarios } from '../hooks/useUsuarios';
 
 export const Usuarios = () => {
 
-    const [users, setUsers] = useState<User[]>([])
-    const pageRef = useRef(1)
+    const {
+        users,
+        hayPaginaAnterior,
+        paginaSiguiente,
+        paginaAnterior
+    } = useUsuarios()
 
-    useEffect(() => {
-
-        cargarUsuarios()
-
-    }, [])
-
-    const cargarUsuarios = async () => {
-        const resp = await reqResApi.get<ReqResListado>('users', {
-            params: {
-                page: pageRef.current
-            }
-        })
-        console.log("pageRef: ", pageRef.current)
-        console.log(resp.data.data)
-        if (resp.data.data.length > 0) {
-            setUsers(resp.data.data)
-            pageRef.current++
-        } else {
-            alert("No hay más páginas a mostrar")
-        }
-    }
     const renderUser = ({ avatar, first_name, last_name, email }: User) => {
         return (
             <tr key={email}>
@@ -60,8 +43,18 @@ export const Usuarios = () => {
             </table>
             <button
                 className='btn btn-primary'
-                onClick={cargarUsuarios}
-            >Siguiente</button>
+                onClick={paginaAnterior}
+                disabled={!hayPaginaAnterior}
+            >
+                Anteriores
+            </button>
+            &nbsp;
+            <button
+                className='btn btn-primary'
+                onClick={paginaSiguiente}
+            >
+                Siguientes
+            </button>
         </>
 
     )
