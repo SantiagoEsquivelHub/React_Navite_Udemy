@@ -1,19 +1,13 @@
-import React, { HtmlHTMLAttributes } from 'react'
-import { useState } from 'react';
+import { useForm } from '../hooks/useForm';
+
+const initialForm = {
+    email: "santi@gmail.com",
+    password: "santi123"
+}
 
 export const Formularios = () => {
 
-    const [formulario, setFormulario] = useState({
-        email: 'santi@gmail.com',
-        password: 'sss'
-    })
-
-    const onChange = ({ target }: any) => {
-        setFormulario({
-            ...formulario,
-            [target.name]: target.value
-        })
-    }
+    const { email, password, onChange, formulario } = useForm(initialForm)
 
     return (
         <>
@@ -25,7 +19,7 @@ export const Formularios = () => {
                 type="text"
                 name="email"
                 id="email"
-                value={formulario.email}
+                value={email}
                 onChange={onChange}
             />
 
@@ -35,7 +29,7 @@ export const Formularios = () => {
                 type="text"
                 name="password"
                 id="password"
-                value={formulario.password}
+                value={password}
                 onChange={onChange}
 
             />
