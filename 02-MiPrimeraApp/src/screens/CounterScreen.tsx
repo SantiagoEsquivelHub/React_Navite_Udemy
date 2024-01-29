@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Button, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import { Button, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 
 export const CounterScreen = () => {
   const [counter, setCounter] = useState(10);
@@ -10,20 +10,40 @@ export const CounterScreen = () => {
 
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-      }}>
+      style={styles.container}>
       <Text
-        style={{
-          textAlign: 'center',
-          fontSize: 40,
-          top: -15,
-        }}>
+        style={styles.title}>
         Counter: {counter}
       </Text>
-      <Button onPress={() => onPress(1)} title="+1" />
-      <Button onPress={() => onPress(-1)} title="-1" />
+
+      {/* Do not use Button */}
+      {/* <Button onPress={() => onPress(1)} title="+1" /> */}
+      {/* <Button onPress={() => onPress(-1)} title="-1" /> */}
+
+      <TouchableOpacity
+        onPress={() => onPress(1)}
+      >
+        <View style={styles.increaseButton}>
+          <Text>+1</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 40,
+    top: -15,
+  },
+  increaseButton: {
+    backgroundColor: 'red',
+    borderRadius: 100
+  }
+})
