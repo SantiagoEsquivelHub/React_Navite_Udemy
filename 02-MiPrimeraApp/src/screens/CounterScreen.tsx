@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 
 export const CounterScreen = () => {
   const [counter, setCounter] = useState(10);
@@ -9,28 +9,23 @@ export const CounterScreen = () => {
   };
 
   return (
-    <View
-      style={styles.container}>
-      <Text
-        style={styles.title}>
-        Counter: {counter}
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Counter: {counter}</Text>
 
-      {/* Do not use Button */}
-      {/* <Button onPress={() => onPress(1)} title="+1" /> */}
-      {/* <Button onPress={() => onPress(-1)} title="-1" /> */}
+      <TouchableOpacity style={styles.fabLocationBL} onPress={() => onPress(-1)}>
+        <View style={styles.fab}>
+          <Text style={styles.fabText}>-1</Text>
+        </View>
+      </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={() => onPress(1)}
-      >
-        <View style={styles.increaseButton}>
-          <Text>+1</Text>
+      <TouchableOpacity style={styles.fabLocationBR} onPress={() => onPress(1)}>
+        <View style={styles.fab}>
+          <Text style={styles.fabText}>+1</Text>
         </View>
       </TouchableOpacity>
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -42,8 +37,27 @@ const styles = StyleSheet.create({
     fontSize: 40,
     top: -15,
   },
-  increaseButton: {
-    backgroundColor: 'red',
-    borderRadius: 100
-  }
-})
+  fabLocationBR: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+  },
+  fabLocationBL: {
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+  },
+  fab: {
+    backgroundColor: '#5856D6',
+    width: 60,
+    height: 60,
+    borderRadius: 100,
+    justifyContent: 'center',
+  },
+  fabText: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+  },
+});
