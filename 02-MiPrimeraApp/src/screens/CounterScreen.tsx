@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
+import {Fab} from '../components/Fab';
 
 export const CounterScreen = () => {
   const [counter, setCounter] = useState(10);
@@ -12,17 +13,19 @@ export const CounterScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Counter: {counter}</Text>
 
-      <TouchableOpacity style={styles.fabLocationBL} onPress={() => onPress(-1)}>
+      <Fab title="-1" onPress={() => onPress(-1)} position='bl'/>
+
+      <Fab title="+1" onPress={() => onPress(+1)} position='br'/>
+
+      {/* <TouchableOpacity style={styles.fabLocationBL} onPress={() => onPress(-1)}>
         <View style={styles.fab}>
           <Text style={styles.fabText}>-1</Text>
         </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.fabLocationBR} onPress={() => onPress(1)}>
+      {/* <TouchableOpacity style={styles.fabLocationBR} onPress={() => onPress(1)}>
         <View style={styles.fab}>
           <Text style={styles.fabText}>+1</Text>
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };
@@ -36,28 +39,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     top: -15,
-  },
-  fabLocationBR: {
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-  },
-  fabLocationBL: {
-    position: 'absolute',
-    bottom: 20,
-    left: 20,
-  },
-  fab: {
-    backgroundColor: '#5856D6',
-    width: 60,
-    height: 60,
-    borderRadius: 100,
-    justifyContent: 'center',
-  },
-  fabText: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    alignSelf: 'center',
   },
 });
