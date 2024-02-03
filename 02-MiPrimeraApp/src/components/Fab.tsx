@@ -14,19 +14,21 @@ interface Props {
   onPress: (number: number) => void;
 }
 
-export const Fab = ({title, onPress, position}: Props) => {
+export const Fab = ({ title, onPress, position }: Props) => {
   const ios = () => {
-    <TouchableOpacity
-      activeOpacity={0.8}
-      onPress={() => onPress(-1)}
-      style={[
-        styles.fabLocation,
-        position === 'br' ? styles.right : styles.left,
-      ]}>
-      <View style={styles.fab}>
-        <Text style={styles.fabText}>{title}</Text>
-      </View>
-    </TouchableOpacity>;
+    return (
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={() => onPress(-1)}
+        style={[
+          styles.fabLocation,
+          position === 'br' ? styles.right : styles.left,
+        ]}>
+        <View style={styles.fab}>
+          <Text style={styles.fabText}>{title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
   };
 
   const android = () => {
@@ -48,6 +50,7 @@ export const Fab = ({title, onPress, position}: Props) => {
   };
 
   return Platform.OS === 'ios' ? ios() : android();
+
 };
 
 const styles = StyleSheet.create({
