@@ -7,6 +7,27 @@ export const FlexScreen = () => {
             <Text style={styles.box1}>Box 1</Text>
             <Text style={styles.box2}>Box 2</Text>
             <Text style={styles.box3}>Box 3</Text>
+            <Text style={styles.box1}>Box 1</Text>
+            <Text style={styles.box2}>Box 2</Text>
+            <Text style={styles.box3}>Box 3</Text>
+            <Text style={styles.box1}>Box 1</Text>
+            <Text style={styles.box2}>Box 2</Text>
+            <Text style={styles.box3}>Box 3</Text>
+            <Text style={styles.box1}>Box 1</Text>
+            <Text style={styles.box2}>Box 2</Text>
+            <Text style={styles.box3}>Box 3</Text>
+            <Text style={styles.box1}>Box 1</Text>
+            <Text style={styles.box2}>Box 2</Text>
+            <Text style={styles.box3}>Box 3</Text>
+            <Text style={styles.box1}>Box 1</Text>
+            <Text style={styles.box2}>Box 2</Text>
+            <Text style={styles.box3}>Box 3</Text>
+            <Text style={styles.box1}>Box 1</Text>
+            <Text style={styles.box2}>Box 2</Text>
+            <Text style={styles.box3}>Box 3</Text>
+            <Text style={styles.box1}>Box 1</Text>
+            <Text style={styles.box2}>Box 2</Text>
+            <Text style={styles.box3}>Box 3</Text>
         </View>
     )
 }
@@ -16,15 +37,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#28C4D9',
         flexDirection: 'row',
-        alignItems: 'flex-end',
-        justifyContent: 'flex-end',
+        flexWrap: 'wrap',
     },
     box1: {
         // flex: 4, // 40% of the screen
         borderWidth: 2,
         borderColor: 'white',
         fontSize: 30,
-        alignSelf: 'center',
     },
     box2: {
         // flex: 4, // 40% of the screen
