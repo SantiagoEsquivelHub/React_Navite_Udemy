@@ -15,21 +15,22 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#28C4D9',
+        flexDirection: 'row',
     },
     box1: {
-        flex: 4, // 40% of the screen
+        // flex: 4, // 40% of the screen
         borderWidth: 2,
         borderColor: 'white',
         fontSize: 30,
     },
     box2: {
-        flex: 4, // 40% of the screen
+        // flex: 4, // 40% of the screen
         borderWidth: 2,
         borderColor: 'white',
         fontSize: 30,
     },
     box3: {
-        flex: 2, // 20% of the screen
+        // flex: 2, // 20% of the screen
         borderWidth: 2,
         borderColor: 'white',
         fontSize: 30,
