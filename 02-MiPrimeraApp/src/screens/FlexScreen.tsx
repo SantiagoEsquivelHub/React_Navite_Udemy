@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: 'white',
         fontSize: 30,
+        alignSelf: 'center',
     },
     box2: {
         // flex: 4, // 40% of the screen
