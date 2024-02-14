@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#28C4D9',
         flexDirection: 'row',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
     },
     box1: {
         // flex: 4, // 40% of the screen
