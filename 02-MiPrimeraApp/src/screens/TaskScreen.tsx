@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#28425B'
     },
     purpleBox: {
+        flex: 1,
         width: 100,
         height: 100,
         borderWidth: 10,
@@ -24,6 +25,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#5856D6',
     },
     orangeBox: {
+        flex: 8,
         width: 100,
         height: 100,
         borderWidth: 10,
@@ -31,6 +33,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F0A23B',
     },
     blueBox: {
+        flex: 1,
         width: 100,
         height: 100,
         borderWidth: 10,
