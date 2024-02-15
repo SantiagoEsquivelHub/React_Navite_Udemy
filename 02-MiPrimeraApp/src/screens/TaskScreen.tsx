@@ -14,10 +14,10 @@ export const TaskScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#28425B'
+        backgroundColor: '#28425B',
+        justifyContent: 'center',
     },
     purpleBox: {
-        flex: 1,
         width: 100,
         height: 100,
         borderWidth: 10,
@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#5856D6',
     },
     orangeBox: {
-        flex: 8,
         width: 100,
         height: 100,
         borderWidth: 10,
@@ -33,11 +32,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#F0A23B',
     },
     blueBox: {
-        flex: 1,
-        width: 100,
+        // width: 100,
         height: 100,
         borderWidth: 10,
         borderColor: 'white',
         backgroundColor: '#28C4D9',
+        alignSelf: 'stretch'
     },
 });
