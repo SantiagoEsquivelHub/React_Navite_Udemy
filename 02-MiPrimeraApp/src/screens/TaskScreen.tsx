@@ -23,7 +23,9 @@ const styles = StyleSheet.create({
         borderWidth: 10,
         borderColor: 'white',
         backgroundColor: '#5856D6',
-        alignSelf: 'flex-end',
+        position: 'absolute',
+        right: 0,
+        top: 0,
     },
     orangeBox: {
         width: 100,
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
         borderWidth: 10,
         borderColor: 'white',
         backgroundColor: '#F0A23B',
-        alignSelf: 'flex-start',
+        alignSelf: 'center',
     },
     blueBox: {
         width: 100,
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
         borderWidth: 10,
         borderColor: 'white',
         backgroundColor: '#28C4D9',
-        alignSelf: 'center',
+        position: 'absolute',
+        bottom: 0,
     },
 });
