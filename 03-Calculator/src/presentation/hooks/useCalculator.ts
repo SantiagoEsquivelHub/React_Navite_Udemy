@@ -38,12 +38,32 @@ export const useCalculator = ({ }) => {
         setNumber('0');
     }
 
+    const deleteOperation = () => {
+
+        // Positive or negative single number
+        if (number.length === 1 || (number.length === 2 && number.includes('-'))) {
+            return setNumber('0');
+        }
+
+        setNumber(number.slice(0, -1));
+    }
+
+    const toogleSign = () => {
+        if (number.includes('-')) {
+            return setNumber(number.replace('-', ''))
+        }
+
+        return setNumber('-' + number);
+    }
+
     return {
         // Properties
         number,
 
         // Methods
         buildNumber,
-        cleanNumber
+        cleanNumber,
+        deleteOperation,
+        toogleSign
     }
 }
