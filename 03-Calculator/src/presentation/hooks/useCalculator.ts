@@ -1,7 +1,17 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+
+enum Operator {
+    add,
+    subtract,
+    multiply,
+    divide,
+}
 
 export const useCalculator = ({ }) => {
     const [number, setNumber] = useState('0');
+    const [previousNumber, setPreviousNumber] = useState('0');
+
+    const lastOperator = useRef<Operator>();
 
     const buildNumber = (newNumber: string) => {
 
@@ -36,6 +46,7 @@ export const useCalculator = ({ }) => {
 
     const cleanNumber = () => {
         setNumber('0');
+        setPreviousNumber('0');
     }
 
     const deleteOperation = () => {
@@ -56,14 +67,48 @@ export const useCalculator = ({ }) => {
         return setNumber('-' + number);
     }
 
+    const setLastNumber = () => {
+        if (number.endsWith('.')) {
+            setPreviousNumber(number.slice(0, -1));
+        } else {
+            setPreviousNumber(number);
+        }
+        setNumber('0');
+    }
+
+    const addOperator = () => {
+        setLastNumber();
+        lastOperator.current = Operator.add;
+    }
+
+    const subtractOperator = () => {
+        setLastNumber();
+        lastOperator.current = Operator.subtract;
+    }
+
+    const multiplyOperator = () => {
+        setLastNumber();
+        lastOperator.current = Operator.multiply;
+    }
+
+    const divideOperator = () => {
+        setLastNumber();
+        lastOperator.current = Operator.divide;
+    }
+
     return {
         // Properties
         number,
+        previousNumber,
 
         // Methods
         buildNumber,
         cleanNumber,
         deleteOperation,
-        toogleSign
+        toogleSign,
+        addOperator,
+        subtractOperator,
+        multiplyOperator,
+        divideOperator,
     }
 }
