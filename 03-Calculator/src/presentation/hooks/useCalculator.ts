@@ -96,6 +96,35 @@ export const useCalculator = ({ }) => {
         lastOperator.current = Operator.divide;
     }
 
+    const calculateResult = () => {
+
+        const number1 = Number(number);
+        const number2 = Number(previousNumber);
+
+        switch (lastOperator.current) {
+            case Operator.add:
+                setNumber(`${number1 + number2}`);
+                break;
+            case Operator.subtract:
+                setNumber(`${number2 - number1}`);
+                break;
+
+            case Operator.multiply:
+                setNumber(`${number1 * number2}`);
+                break;
+
+            case Operator.divide:
+                setNumber(`${number2 / number1}`);
+                break;
+
+            default:
+                throw new Error('Operator not found');
+        }
+
+        setPreviousNumber('0');
+
+    }
+
     return {
         // Properties
         number,
@@ -110,5 +139,6 @@ export const useCalculator = ({ }) => {
         subtractOperator,
         multiplyOperator,
         divideOperator,
+        calculateResult
     }
 }
