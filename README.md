@@ -1,2 +1,2 @@
 # React_Navite_Udemy
-Repositorio de mis proyectos desarrollados mientras aprendo sobre React Navite :)
+Repository of my projects developed while learning about React Native :)
