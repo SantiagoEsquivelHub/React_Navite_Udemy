@@ -8,6 +8,7 @@ import {StackNavigator} from './StackNavigator';
 import {ProfileScreen} from '../screens/profile/ProfileScreen';
 import {globalColors} from '../theme/theme';
 import {View, useWindowDimensions} from 'react-native';
+import {BottomTabsNavigator} from './BottomTabsNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -28,7 +29,8 @@ export const SideMenuNavigator = () => {
           paddingHorizontal: 20,
         },
       }}>
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      {/* <Drawer.Screen name="StackNavigator" component={StackNavigator} /> */}
+      <Drawer.Screen name="Tabs" component={BottomTabsNavigator} />
       <Drawer.Screen name="Profile" component={ProfileScreen} />
     </Drawer.Navigator>
   );

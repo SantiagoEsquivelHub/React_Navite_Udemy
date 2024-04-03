@@ -1,9 +1,9 @@
 import {Text, View} from 'react-native';
 
-export const Tab1Screen = () => {
+export const Tab3Screen = () => {
   return (
     <View>
-      <Text>Tab1Screen</Text>
+      <Text>Tab3Screen</Text>
     </View>
   );
 };
