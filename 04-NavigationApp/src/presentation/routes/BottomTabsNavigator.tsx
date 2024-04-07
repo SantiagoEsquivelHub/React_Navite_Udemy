@@ -4,8 +4,9 @@ import {Tab2Screen} from '../screens/tabs/Tab2Screen';
 import {Tab3Screen} from '../screens/tabs/Tab3Screen';
 import {globalColors} from '../theme/theme';
 import {Text} from 'react-native';
-import { TopTabsNavigator } from './TopTabsNavigator';
-import { StackNavigator } from './StackNavigator';
+import {TopTabsNavigator} from './TopTabsNavigator';
+import {StackNavigator} from './StackNavigator';
+import {IonIcon} from '../components/shared/IonIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +34,9 @@ export const BottomTabsNavigator = () => {
         name="Tab1"
         options={{
           title: 'Tab1',
-          tabBarIcon: ({color}) => <Text style={{color}}>Tab1</Text>,
+          tabBarIcon: ({color}) => (
+            <IonIcon name="rocket" size={30} color={color} />
+          ),
         }}
         component={Tab1Screen}
       />
@@ -41,7 +44,9 @@ export const BottomTabsNavigator = () => {
         name="Tab2"
         options={{
           title: 'Tab2',
-          tabBarIcon: ({color}) => <Text style={{color}}>Tab2</Text>,
+          tabBarIcon: ({color}) => (
+            <IonIcon name="random" size={30} color={color} />
+          ),
         }}
         component={TopTabsNavigator}
       />
@@ -49,7 +54,9 @@ export const BottomTabsNavigator = () => {
         name="Tab3"
         options={{
           title: 'Tab3',
-          tabBarIcon: ({color}) => <Text style={{color}}>Tab3</Text>,
+          tabBarIcon: ({color}) => (
+            <IonIcon name="star-o" size={30} color={color} />
+          ),
         }}
         component={StackNavigator}
       />
