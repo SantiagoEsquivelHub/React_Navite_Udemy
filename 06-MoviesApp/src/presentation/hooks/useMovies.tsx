@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import * as UsesCases from "../../core/use-cases"
-import { movieDBFetcher } from "../../config/adapters/movieDB.adapter";
+import {useEffect, useState} from 'react';
+import * as UsesCases from '../../core/use-cases';
+import {movieDBFetcher} from '../../config/adapters/movieDB.adapter';
 
 export const useMovies = () => {
   const [nowPlaying, setNowPlaying] = useState([]);
@@ -8,14 +8,17 @@ export const useMovies = () => {
 
   useEffect(() => {
     initLoad();
-  }, [])
+  }, []);
 
   const initLoad = async () => {
-    const nowPlayingMovies = await UsesCases.moviesNowPlayingUseCase(movieDBFetcher);
-  }
-
+    const nowPlayingMovies = await UsesCases.moviesNowPlayingUseCase(
+      movieDBFetcher,
+    );
+    console.log('🚀 ~ initLoad ~ nowPlayingMovies:', nowPlayingMovies[0]);
+  };
 
   return {
-
-  }
-}
+    nowPlaying,
+    isLoading,
+  };
+};
