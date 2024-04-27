@@ -9,7 +9,7 @@ export const App = () => {
     <NavigationContainer>
       <View>
         <Text>
-          <HomeScreen></HomeScreen>
+          <HomeScreen />
         </Text>
       </View>
     </NavigationContainer>
