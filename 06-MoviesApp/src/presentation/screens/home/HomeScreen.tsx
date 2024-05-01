@@ -1,14 +1,14 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { useMovies } from '../../hooks/useMovies';
-import { ScrollView } from 'react-native-gesture-handler';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { PosterCarrousel } from '../../components/movies/PosterCarrousel';
-import { HorizontalCarousel } from '../../components/movies/HorizontalCarousel';
+import {Text, View} from 'react-native';
+import {useMovies} from '../../hooks/useMovies';
+import {ScrollView} from 'react-native-gesture-handler';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {PosterCarrousel} from '../../components/movies/PosterCarrousel';
+import {HorizontalCarousel} from '../../components/movies/HorizontalCarousel';
 
 export const HomeScreen = () => {
-  const { top } = useSafeAreaInsets();
-  const { isLoading, nowPlaying, popular, uncoming, topRated } = useMovies();
+  const {top} = useSafeAreaInsets();
+  const {isLoading, nowPlaying, popular, uncoming, topRated} = useMovies();
 
   if (isLoading) {
     return (
@@ -20,20 +20,30 @@ export const HomeScreen = () => {
 
   return (
     <ScrollView>
-      <View style={{ marginTop: top + 20, paddingBottom: 30 }}>
-        
+      <View style={{marginTop: top + 20, paddingBottom: 30}}>
         {/* Now Playing */}
         <PosterCarrousel movies={nowPlaying} />
 
         {/* Popular */}
-        <HorizontalCarousel movies={popular} title="Popular" />
+        <HorizontalCarousel
+          movies={popular}
+          title="Popular"
+          loadNextPage={() => console.log('Popular')}
+        />
 
         {/* Top Rated */}
-        <HorizontalCarousel movies={topRated} title="Top Rated" />
+        <HorizontalCarousel
+          movies={topRated}
+          title="Top Rated"
+          loadNextPage={() => console.log('Top Rated')}
+        />
 
         {/* Soon */}
-        <HorizontalCarousel movies={uncoming} title="Soon" />
-
+        <HorizontalCarousel
+          movies={uncoming}
+          title="Soon"
+          loadNextPage={() => console.log('Soon')}
+        />
       </View>
     </ScrollView>
   );
