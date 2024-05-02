@@ -1,7 +1,9 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import * as UsesCases from '../../core/use-cases';
-import {movieDBFetcher} from '../../config/adapters/movieDB.adapter';
-import {Movie} from '../../core/models/movie.model';
+import { movieDBFetcher } from '../../config/adapters/movieDB.adapter';
+import { Movie } from '../../core/models/movie.model';
+
+let popularPage = 1;
 
 export const useMovies = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -46,11 +48,25 @@ export const useMovies = () => {
     setIsLoading(false);
   };
 
+  const popularNextPage = async () => {
+    popularPage++;
+
+    const popularMovies = await UsesCases.moviesPopularUseCase(movieDBFetcher, {
+      page: popularPage,
+    });
+
+    setPopular([...popular, ...popularMovies]);
+
+  }
+
   return {
     isLoading,
     nowPlaying,
     popular,
     uncoming,
     topRated,
+
+    // Methods
+    popularNextPage
   };
 };
