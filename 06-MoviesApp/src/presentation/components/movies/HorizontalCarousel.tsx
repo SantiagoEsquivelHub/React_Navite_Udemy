@@ -21,7 +21,7 @@ export const HorizontalCarousel = ({movies, title, loadNextPage}: Props) => {
   useEffect(() => {
     setTimeout(() => {
       isLoading.current = false;
-    }, 200);
+    }, 100);
   }, [movies]);
 
   const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
