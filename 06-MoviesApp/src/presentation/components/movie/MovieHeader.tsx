@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, useWindowDimensions, View, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface Props {
     poster: string;
@@ -7,19 +8,21 @@ interface Props {
     title: string;
 }
 
-export const MovieHeader = ({ poster, originalTitle, title }: Props) => {
+export const MovieHeader = ({ poster = '', originalTitle = '', title = '' }: Props) => {
 
     const { height: screenHeight } = useWindowDimensions();
     const navigation = useNavigation();
 
 
     return (
-        <View style={{ ...styles.imageContainer, height: screenHeight * 0.7 }}>
-            <View style={styles.imageBorder}>
-                <Image
-                    source={{ uri: poster }}
-                    style={styles.posterImage}
-                />
+        <>
+            <View style={{ ...styles.imageContainer, height: screenHeight * 0.7 }}>
+                <View style={styles.imageBorder}>
+                    <Image
+                        source={{ uri: poster }}
+                        style={styles.posterImage}
+                    />
+                </View>
             </View>
 
             <View style={styles.marginContainer}>
@@ -29,11 +32,11 @@ export const MovieHeader = ({ poster, originalTitle, title }: Props) => {
 
             <View style={styles.backButton}>
                 <Pressable onPress={() => navigation.goBack()}>
-                    <Text style={styles.backButtonText}>Go back</Text>
+                    <Icon name={'arrow-left'} size={25} color={'black'} />
                 </Pressable>
             </View>
+        </>
 
-        </View>
     )
 }
 
@@ -81,8 +84,11 @@ const styles = StyleSheet.create({
         position: 'absolute',
         zIndex: 999,
         elevation: 9,
-        top: 35,
-        left: 10,
+        top: 15,
+        left: 15,
+        backgroundColor: 'white',
+        padding: 10,
+        borderRadius: 100,
     },
     backButtonText: {
         color: 'white',

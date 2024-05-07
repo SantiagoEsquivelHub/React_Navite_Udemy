@@ -17,8 +17,7 @@ export const useMovie = (movieId: number) => {
 
     const movie = await UsesCases.getMovieByIdUseCase(movieDBFetcher, movieId);
     setMovie(movie);  
-    console.log("🚀 ~ loadlMovie ~ movie:", movie)
-
+    
     setIsLoading(false);
 
     return movie
