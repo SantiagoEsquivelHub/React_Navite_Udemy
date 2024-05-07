@@ -8,7 +8,6 @@ export const moviesNowPlayingUseCase = async (fetcher: HttpAdapter): Promise<Mov
         const nowPlaying = await fetcher.get<NowPlayingResponse>('/now_playing');
         return nowPlaying.results.map(MovieMapper.fromMovieDBResultToMovie);
     } catch (error) {
-        console.log("🚀 ~ moviesNowPlayingUseCase ~ error:", error)
         throw new Error('Error fetching now playing movies');
     }
 }
