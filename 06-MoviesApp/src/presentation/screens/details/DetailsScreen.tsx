@@ -1,21 +1,32 @@
-import {useRoute} from '@react-navigation/native';
-import {StackScreenProps} from '@react-navigation/stack';
-import React from 'react';
-import {Text, View} from 'react-native';
-import {RootStackParams} from '../../navigation/Navigation';
-import {useMovie} from '../../hooks/useMovie';
+import { StackScreenProps } from '@react-navigation/stack';
+import { Text, View } from 'react-native';
 
-interface Props extends StackScreenProps<RootStackParams, 'Details'> {}
+import { RootStackParams } from '../../navigation/Navigation';
+import { useMovie } from '../../hooks/useMovie';
+import { MovieHeader } from '../../components/movie/MovieHeader';
 
-export const DetailsScreen = ({route, navigation}: Props) => {
-  const {movieId} = route.params;
-  console.log('🚀 ~ DetailsScreen ~ movieId:', movieId);
+interface Props extends StackScreenProps<RootStackParams, 'Details'> { }
 
-  const {} = useMovie(movieId);
+export const DetailsScreen = ({ route }: Props) => {
+
+  const { movieId } = route.params;
+  const { isLoading, movie } = useMovie(movieId);
+
+  if (isLoading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
 
   return (
     <View>
-      <Text>DetailsScreen</Text>
+      <MovieHeader
+        poster={movie!.poster}
+        originalTitle={movie!.originalTitle}
+        title={movie!.title}
+      />
     </View>
   );
 };

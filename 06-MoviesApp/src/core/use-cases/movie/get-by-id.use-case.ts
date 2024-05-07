@@ -1,7 +1,7 @@
 import { HttpAdapter } from "../../../config/adapters/http/http.adapter";
-import { MovieDBMovie } from "../../../infrastructure/interfaces/movie-db.responses";
 import { MovieMapper } from "../../../infrastructure/mappers/movie.mapper";
 import { FullMovie } from '../../models/movie.model';
+import { MovieDBMovie } from '../../../infrastructure/interfaces/movie-db.responses';
 
 
 export const getMovieByIdUseCase = async (fetcher: HttpAdapter, movieId: number): Promise<FullMovie> => {
