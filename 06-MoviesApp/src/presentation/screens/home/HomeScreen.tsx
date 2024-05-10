@@ -1,26 +1,30 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {useMovies} from '../../hooks/useMovies';
-import {ScrollView} from 'react-native-gesture-handler';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {PosterCarrousel} from '../../components/movies/PosterCarrousel';
-import {HorizontalCarousel} from '../../components/movies/HorizontalCarousel';
+import { ActivityIndicator, Text, View } from 'react-native';
+import { useMovies } from '../../hooks/useMovies';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { PosterCarrousel } from '../../components/movies/PosterCarrousel';
+import { HorizontalCarousel } from '../../components/movies/HorizontalCarousel';
 
 export const HomeScreen = () => {
-  const {top} = useSafeAreaInsets();
-  const {isLoading, nowPlaying, popular, uncoming, topRated, popularNextPage} = useMovies();
+  const { top } = useSafeAreaInsets();
+  const { isLoading, nowPlaying, popular, uncoming, topRated, popularNextPage } = useMovies();
 
   if (isLoading) {
     return (
-      <View>
-        <Text>Loading...</Text>
+      <View style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+        <ActivityIndicator size="large" color="#0000ff" />
       </View>
     );
   }
 
   return (
     <ScrollView>
-      <View style={{marginTop: top + 20, paddingBottom: 30}}>
+      <View style={{ marginTop: top + 20, paddingBottom: 30 }}>
         {/* Now Playing */}
         <PosterCarrousel movies={nowPlaying} />
 
