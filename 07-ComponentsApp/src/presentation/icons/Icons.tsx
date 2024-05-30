@@ -4,8 +4,9 @@ interface Props {
   name: string;
   size: number;
   color: string;
+  style?: object;
 }
 
-export const Icons = ({name, size, color}: Props) => {
-  return <Icon name={name} size={size} color={color} />;
+export const Icons = ({name, size, color, style}: Props) => {
+  return <Icon name={name} size={size} color={color} style={{...style}} />;
 };
